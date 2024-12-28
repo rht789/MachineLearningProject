@@ -1,0 +1,125 @@
+/* src/components/Navbar.css */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  color: var(--primary);
+  font-size: 28px;
+}
+
+.brand-title {
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Common styles for both links and theme toggle */
+.navbar-links li a,
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navbar-links li a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary);
+}
+
+/* Hover effects */
+.navbar-links li a:hover,
+.theme-toggle:hover {
+  background-color: var(--light-bg);
+  color: var(--primary);
+}
+
+/* Icon styles */
+.navbar-links li a svg,
+.theme-toggle svg {
+  transition: transform 0.2s;
+  width: 18px;
+  height: 18px;
+}
+
+.navbar-links li a:hover svg,
+.theme-toggle:hover svg {
+  transform: scale(1.1);
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .navbar {
+  background-color: var(--dark-card);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+[data-theme='dark'] .brand-title {
+  color: var(--dark-text);
+}
+
+[data-theme='dark'] .navbar-links li a,
+[data-theme='dark'] .theme-toggle {
+  color: var(--dark-text);
+}
+
+[data-theme='dark'] .navbar-links li a svg,
+[data-theme='dark'] .theme-toggle svg {
+  color: var(--dark-text);
+}
+
+[data-theme='dark'] .navbar-links li a:hover,
+[data-theme='dark'] .theme-toggle:hover {
+  background-color: var(--dark-hover);
+  color: var(--primary);
+}
+
+[data-theme='dark'] .navbar-links li a:hover svg,
+[data-theme='dark'] .theme-toggle:hover svg {
+  color: var(--primary);
+}
+
+/* Input icon colors for dark mode */
+[data-theme='dark'] .input-icon,
+[data-theme='dark'] .file-icon {
+  color: var(--dark-text);
+}
+  

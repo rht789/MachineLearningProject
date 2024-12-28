@@ -1,0 +1,27 @@
+:root {
+  /* Light mode colors */
+  --primary: #FF6500;
+  --secondary: #1E3E62;
+  --dark: #0B192C;
+  --black: #000000;
+  --white: #FFFFFF;
+  --light-bg: #F5F7FA;
+  --gray: #666666;
+  --border: #E5E7EB;
+
+  /* Dark mode colors */
+  --dark-bg: #0B192C;
+  --dark-secondary: #1E3E62;
+  --dark-border: #2D3748;
+  --dark-text: #E2E8F0;
+  --dark-card: #162A3F;
+  --dark-hover: #233B55;
+}
+
+[data-theme='dark'] {
+  --light-bg: var(--dark-bg);
+  --white: var(--dark-card);
+  --border: var(--dark-border);
+  --gray: var(--dark-text);
+  --dark: var(--dark-text);
+} 

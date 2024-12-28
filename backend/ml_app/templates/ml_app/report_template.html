@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ML Analysis Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2196F3;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .info-item:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .algorithm-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .algorithm-section h3 {
+            margin-top: 0;
+            color: #2196F3;
+        }
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+        }
+        .metric-value {
+            font-weight: bold;
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Machine Learning Analysis Report</h1>
+        <p>Generated on {{ analysis_date }}</p>
+        <p>Dataset: {{ dataset_name }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Analysis Overview</h2>
+        <div class="info-item">
+            <span>Objective</span>
+            <span>{{ objective }}</span>
+        </div>
+        <div class="info-item">
+            <span>Target Column</span>
+            <span>{{ target_column }}</span>
+        </div>
+    </div>
+
+    {% if metrics.data_shape %}
+    <div class="section">
+        <h2>Dataset Information</h2>
+        <div class="info-item">
+            <span>Number of Rows</span>
+            <span>{{ metrics.data_shape.rows }}</span>
+        </div>
+        <div class="info-item">
+            <span>Number of Columns</span>
+            <span>{{ metrics.data_shape.columns }}</span>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if metrics.class_distribution %}
+    <div class="section">
+        <h2>Class Distribution</h2>
+        {% for class, count in metrics.class_distribution.items %}
+        <div class="info-item">
+            <span>Class {{ class }}</span>
+            <span>{{ count }} samples</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="section">
+        <h2>Model Performance</h2>
+        {% for algorithm, metrics_dict in metrics.algorithm_results.items %}
+            {% if algorithm != "data_distribution" and algorithm != "balancing_info" %}
+            <div class="algorithm-section">
+                <h3>{{ algorithm|title }}</h3>
+                {% for metric, value in metrics_dict.items %}
+                    {% if value|stringformat:"f" != "nan" %}
+                    <div class="metric-item">
+                        <span>{{ metric|title }}</span>
+                        <span class="metric-value">{{ value|floatformat:4 }}</span>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if metrics.preprocessing_info %}
+    <div class="section">
+        <h2>Preprocessing Details</h2>
+        {% for key, value in metrics.preprocessing_info.items %}
+        <div class="info-item">
+            <span>{{ key|title }}</span>
+            <span>{{ value }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html> 

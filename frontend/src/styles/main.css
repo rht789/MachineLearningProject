@@ -1,0 +1,80 @@
+:root {
+  --primary: #FF6500;
+  --secondary: #1E3E62;
+  --dark: #0B192C;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+.navbar {
+  background-color: var(--dark);
+  padding: 1rem 2rem;
+  color: var(--white);
+}
+
+.analysis-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.main-title {
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--secondary);
+  margin-bottom: 2rem;
+}
+
+.analysis-form {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--secondary);
+}
+
+.upload-section {
+  border: 2px dashed var(--secondary);
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #e65c00;
+}
+
+.btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} 

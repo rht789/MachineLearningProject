@@ -1,0 +1,659 @@
+/* src/components/ResultsDisplay.css */
+.results-container {
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.results-container h3 {
+  color: var(--text-primary);
+  margin: 20px 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Dataset Information */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-box {
+  text-align: center;
+  padding: 15px;
+}
+
+.info-box h4 {
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.info-icon {
+  color: var(--text-secondary);
+}
+
+/* Algorithm Performance */
+.algorithms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.algorithm-card {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.algorithm-card h4 {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.metric-name {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-icon {
+  color: inherit;
+}
+
+.metric-value {
+  font-weight: bold;
+}
+
+/* Chart */
+.chart-container {
+  background: var(--background-primary);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 900px;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Preprocessing Details */
+.preprocessing-details {
+  margin-top: 30px;
+}
+
+.preprocessing-details h3 {
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.preprocessing-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.preprocessing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.preprocessing-label {
+  color: #8B949E;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.preprocessing-value {
+  color: var(--text-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Value colors */
+.preprocessing-value.yes {
+  color: #4CAF50;
+}
+
+.preprocessing-value.no {
+  color: #EF5350;
+}
+
+.preprocessing-value.numeric {
+  color: #2196F3;
+}
+
+.preprocessing-value.none {
+  color: #8B949E;
+}
+
+/* Target Type positioning */
+.preprocessing-item.target-type {
+  padding-left: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .algorithms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preprocessing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-container {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.target-classes {
+    margin: 30px 0;
+}
+
+.target-classes h3 {
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.class-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.class-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.class-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--background-primary);
+    border-radius: 8px;
+}
+
+.class-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.class-count {
+    color: var(--text-secondary);
+}
+
+/* Add responsive styling */
+@media (max-width: 900px) {
+    .chart-container {
+        padding: 10px;
+    }
+    
+    .recharts-wrapper {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+.class-distribution-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.class-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-label {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.percentage {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.class-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sample-count {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.sample-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.section-icon {
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .class-distribution-container {
+        padding: 0 15px;
+    }
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.download-btn.pdf {
+    background-color: var(--primary-color);
+}
+
+.download-btn.html {
+    background-color: var(--secondary-color);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 20px;
+    }
+    
+    .download-btn {
+        justify-content: center;
+    }
+}
+
+.download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.download-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.download-btn.pdf {
+    background-color: var(--primary-color);
+}
+
+.download-btn.html {
+    background-color: var(--secondary-color);
+}
+
+.download-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:not(:disabled):active {
+    transform: translateY(0);
+}
+
+.download-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    background-color: var(--error-bg);
+    border-radius: 4px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .download-btn {
+        justify-content: center;
+    }
+
+    .download-error {
+        margin: 0 20px;
+        text-align: center;
+    }
+}
+
+.clustering-explanation {
+    background: var(--background-primary);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.clustering-explanation h4 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.metric-explanation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.metric-explanation-item {
+    background: var(--background-secondary);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.metric-explanation-item h5 {
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.metric-explanation-item p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.learn-more-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.learn-more-button:hover {
+    background: var(--background-hover);
+    border-color: var(--primary-color);
+}
+
+.learn-more-button svg {
+    transition: transform 0.2s ease;
+}
+
+.learn-more-button.expanded svg {
+    transform: rotate(180deg);
+}
+
+/* Chart container dark mode support */
+.chart-container {
+    background: var(--background-primary);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+/* Add these CSS variables at the top of the file */
+:root {
+    /* Light theme */
+    --background-primary: var(--white, #ffffff);
+    --background-secondary: var(--light-bg, #F5F7FA);
+    --background-hover: rgba(0, 0, 0, 0.05);
+    --text-primary: var(--dark, #0B192C);
+    --text-secondary: var(--gray, #666666);
+    --border-color: var(--border, #E5E7EB);
+    --primary-color: var(--primary, #FF6500);
+    --secondary-color: var(--secondary, #1E3E62);
+    --chart-grid: #E5E7EB;
+    --error-color: #ef5350;
+    --error-bg: rgba(239, 83, 80, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --background-primary: var(--dark-card, #162A3F);
+    --background-secondary: var(--dark-bg, #0B192C);
+    --background-hover: var(--dark-hover, #233B55);
+    --text-primary: var(--dark-text, #E2E8F0);
+    --text-secondary: #94A3B8;
+    --border-color: var(--dark-border, #2D3748);
+    --chart-grid: var(--dark-border, #2D3748);
+}
+
+/* Dark theme specific overrides */
+[data-theme="dark"] .chart-container {
+    background-color: var(--dark-card);
+}
+
+[data-theme="dark"] .clustering-explanation {
+    background-color: var(--dark-card);
+}
+
+[data-theme="dark"] .metric-explanation-item {
+    background-color: var(--dark-bg);
+}
+
+[data-theme="dark"] .recharts-surface {
+    background-color: transparent;
+}
+
+[data-theme="dark"] .recharts-cartesian-grid-horizontal line,
+[data-theme="dark"] .recharts-cartesian-grid-vertical line {
+    stroke: var(--dark-border);
+}
+
+[data-theme="dark"] .recharts-legend-item-text {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .recharts-tooltip-wrapper {
+    background-color: var(--dark-card) !important;
+}
+
+[data-theme="dark"] .recharts-default-tooltip {
+    background-color: var(--dark-card) !important;
+    border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .recharts-tooltip-item {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .recharts-tooltip-label {
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .recharts-text {
+    fill: var(--dark-text) !important;
+}
+
+/* Chart container styles */
+.chart-container {
+    background-color: var(--background-primary);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+}
+
+/* Clustering explanation styles */
+.clustering-explanation {
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.metric-explanation-item {
+    background-color: var(--background-secondary);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+/* Learn more button styles */
+.learn-more-button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.learn-more-button:hover {
+    background-color: var(--background-hover);
+    border-color: var(--primary-color);
+}
+
+/* Update section headers */
+.results-container h3,
+.results-container h4 {
+    color: var(--text-primary);
+}
+
+/* Update text colors */
+.metric-explanation-item p {
+    color: var(--text-secondary);
+}
+
+/* Chart tooltip custom styles */
+.recharts-tooltip-wrapper {
+    background: var(--background-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 4px;
+}
+  

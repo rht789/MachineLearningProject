@@ -1,0 +1,10 @@
+/* src/index.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* You can add more truly global styles here if needed. */
