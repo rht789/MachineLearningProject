@@ -11,7 +11,7 @@ function Footer() {
                     💪 Built by Sajjad 👽 and Reza 😎
                 </p>
                 <a 
-                    href="https://github.com/yourusername/your-repo" 
+                    href="https://github.com/rht789/MachineLearningProject" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="github-link"
